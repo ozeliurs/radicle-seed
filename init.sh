@@ -33,7 +33,7 @@ rad self
 
 # Run radicle-node and radicle-httpd and tail the logs of both
 mkdir -p /root/.radicle/logs
-radicle-node > /root/.radicle/logs/node.log 2>&1 &
-radicle-httpd > /root/.radicle/logs/httpd.log 2>&1 &
+radicle-node --force --listen 0.0.0.0:8776 > /root/.radicle/logs/node.log 2>&1 &
+radicle-httpd --listen 0.0.0.0:8080 > /root/.radicle/logs/httpd.log 2>&1 &
 
 tail -f /root/.radicle/logs/node.log /root/.radicle/logs/httpd.log

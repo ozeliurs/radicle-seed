@@ -11,4 +11,7 @@ RUN curl -sSf https://radicle.xyz/install | sh
 COPY init.sh /opt/radicle/init.sh
 RUN chmod +x /opt/radicle/init.sh
 
+EXPOSE 8080
+EXPOSE 8776
+
 ENTRYPOINT ["/opt/radicle/init.sh"]
