@@ -2,11 +2,10 @@ FROM debian:stable
 
 RUN apt-get update && apt-get install -y curl git && apt-get clean
 
-ENV RAD_PATH="/opt/radicle"
 RUN mkdir -p /opt/radicle
-ENV PATH="${RAD_PATH}:${PATH}"
+ENV PATH="/opt/radicle:${PATH}"
 
-RUN curl -sSf https://radicle.xyz/install | sh
+RUN curl -sSf https://radicle.xyz/install | sh --prefix=/opt/radicle
 
 COPY init.sh /opt/radicle/init.sh
 RUN chmod +x /opt/radicle/init.sh
